@@ -1,6 +1,6 @@
 # Basic Task Management App with React
 
-Try it out at [https://jayjaber.github.io/todo/](https://jayjaber.github.io/todo/)
+## Try it out at [https://jayjaber.github.io/todo/](https://jayjaber.github.io/todo/)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
