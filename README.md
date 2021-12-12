@@ -1,4 +1,4 @@
-# Basic Task Management App with React
+# Task Management App with React
 
 ## Try it out at [https://jayjaber.github.io/todo/](https://jayjaber.github.io/todo/)
 
