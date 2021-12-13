@@ -1,6 +1,6 @@
 {
-  "short_name": "Calculator",
-  "name": "Calculator Web App by Jay Jaber",
+  "short_name": "Todo",
+  "name": "Task Manager Web App by Jay Jaber",
   "icons": [
     {
       "src": "favicon.ico",
