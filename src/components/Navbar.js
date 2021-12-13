@@ -9,7 +9,7 @@ export default function MyNavbar ({tasks, onTasksChange}) {
     alignLinks="right"
     brand={<a className="brand-logo">&nbsp;Task&nbsp;Manager&nbsp;</a>}     // eslint-disable-line
     id="mobile-nav"
-    menuIcon={<Icon>menu</Icon>}
+    menuIcon={<Icon>settings</Icon>}
     options={{
       draggable: true,
       edge: 'left',
