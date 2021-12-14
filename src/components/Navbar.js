@@ -23,10 +23,10 @@ export default function MyNavbar ({tasks, onTasksChange}) {
     }}
   >
     {/* Navbar buttons to clear tasks */}
-    <NavItem onClick={() => onTasksChange(tasks.filter(task=>task.done === false))} style={{cursor: 'pointer'}}>
+    <NavItem onClick={() => {if (window.confirm('Are you sure you want to clear completed tasks?')) onTasksChange(tasks.filter(task=>task.done === false))}} style={{cursor: 'pointer'}}>
       Clear Completed Tasks
     </NavItem>
-    <NavItem onClick={() => onTasksChange([])} style={{cursor: 'pointer'}}>
+    <NavItem onClick={() => {if (window.confirm('Are you sure you want to clear all tasks?')) onTasksChange([])}} style={{cursor: 'pointer'}}>
       Clear All Tasks
     </NavItem>
   </Navbar>
