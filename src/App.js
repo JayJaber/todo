@@ -9,7 +9,11 @@ import Footer from './components/Footer';
 
 function App() {
   const [tasks, setTasks] = React.useState(JSON.parse(localStorage.getItem('tasks')) || []); // if tasks were previously saved, retriving them
-  const [color, setColor] = React.useState(localStorage.getItem('color')) || 'teal'; // if tasks were previously saved, retriving them
+  const [color, setColor] = React.useState(localStorage.getItem('color') || 'teal'); // if tasks were previously saved, retriving them
+
+  // React.useEffect(() => {
+  //   setColor('teal');
+  // }, []);
 
   React.useEffect(() => { // Setting tasks in local storage on each change so they persist
     localStorage.setItem('tasks', JSON.stringify(tasks));
