@@ -10,7 +10,7 @@ export default function MyNavbar ({tasks, onTasksChange, color, onColorChange,})
     className={color + ' navbar'}
     style={{marginBottom: '1em'}}
     alignLinks="right"
-    brand={<a className="brand-logo">&nbsp;Task&nbsp;Manager&nbsp;</a>}     // eslint-disable-line
+    brand={<a className="brand-logo" style={{margin: '0 10px'}}>Task&nbsp;Manager</a>}     // eslint-disable-line
     id="mobile-nav"
     menuIcon={<Icon>settings</Icon>}
     options={{
@@ -26,7 +26,7 @@ export default function MyNavbar ({tasks, onTasksChange, color, onColorChange,})
     }}
   >
     {/* Navbar buttons to clear tasks */}
-    <NavItem onClick={() => {if (window.confirm('Are you sure you want to clear completed tasks?')) onTasksChange(tasks.filter(task=>task.done === false))}} style={{cursor: 'pointer'}}>
+    <NavItem onClick={() => {if (window.confirm('Are you sure you want to clear completed tasks?')) onTasksChange(tasks.filter(task => task.done===false))}} style={{cursor: 'pointer'}}>
       Clear Completed Tasks
     </NavItem>
     <NavItem onClick={() => {if (window.confirm('Are you sure you want to clear all tasks?')) onTasksChange([])}} style={{cursor: 'pointer'}}>
@@ -52,7 +52,7 @@ export default function MyNavbar ({tasks, onTasksChange, color, onColorChange,})
       trigger={<a href="#color">Select Color{' '}<Icon right>arrow_drop_down</Icon></a>}
     >
       {colors.map(c => 
-        <a className={c} href={'#' + c} style={{color: 'white'}} role='button' onClick={() => onColorChange(c)}>{c}{color===c? <span style={{fontWeight: 700}}>&nbsp;Selected</span>: ''}</a>
+        <a className={c + ' color'} href={'#' + c} style={{color: 'white'}} role='button' onClick={() => onColorChange(c)}>{c}{color===c? <span style={{fontWeight: 700}}>&nbsp;Selected</span>: ''}</a>
       )}
     </Dropdown>
     {/* <NavItem>

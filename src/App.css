@@ -41,6 +41,10 @@ label color
     color: #000 !important;
   }
   
-  .navbar, .footer, .add-task {
+  .navbar, .footer, .add-task, .color {
     text-shadow: 0 1px 1px black;
 }
+
+svg {
+    filter: drop-shadow(0 1px 1px black)
+  }
