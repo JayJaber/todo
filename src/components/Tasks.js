@@ -1,18 +1,26 @@
 import React from 'react';
 import { Checkbox, Button, Icon, TextInput, Row, Col } from 'react-materialize';
 
-export default function Tasks ({tasks, onTasksChange}) {
+export default function Tasks ({tasks, onTasksChange, color}) {
   const [input, setInput] = React.useState(''); // text input
   const [invalid, setInvalid] = React.useState(''); // for displaying if invalid input
 
+  const [title, setTitle] = React.useState(localStorage.getItem('title') || 'Todo List');
+
+  React.useEffect(() => { // Setting color in local storage on each change so it persists
+    localStorage.setItem('title', title);
+  }, [title]);
+
+
   return (
-    <div className='teal lighten-5' style={{textAlign: 'center', margin: '1em', padding: '0.5em', paddingTop: '1em'}}>
+    <div className={color+' lighten-5'} style={{textAlign: 'center', margin: '1em', padding: '0.5em', paddingTop: '1em'}}>
       
       {/* List of tasks */}
-      <h5>Todo List</h5>
+      <TextInput value={title} label='Edit Title' placeholder='Add Title' onChange={e => setTitle(e.target.value)} style={{width: 'calc(100% - 0.9em)', margin: 0, textAlign: 'center', fontSize: 24}}></TextInput>
+
       {tasks.length === 0? <h6 style={{padding: '1.27em'}}>No tasks yet, add some below!</h6>
-      : <Row style={{marginBottom: '0'}}>
-          <Col s={12} m={12}><div  style={{borderBottom: '1px solid rgb(158, 158, 158)', paddingTop: '0.1em', paddingBottom: '0.35em'}}></div></Col>
+      : <Row style={{marginBottom: '0', marginTop: 0}}>
+          {/* <Col s={12} m={12}><div  style={{borderBottom: '1px solid rgb(158, 158, 158)', paddingTop: '0.1em', paddingBottom: '0.35em'}}></div></Col> */}
         {tasks.map((task, i) => 
           <>
             <Col s={9} m={10} l={10} xl={11} style={{textAlign: 'left', marginTop: '1em', marginBottom: '0.5em'}}>{task.done? <s>{i+1}.&nbsp;{task.value}</s> : <>{i+1}.&nbsp;{task.value}</> }</Col>
@@ -27,7 +35,7 @@ export default function Tasks ({tasks, onTasksChange}) {
       {/* Input to add new task */}
       <Row style={{display: 'flex', alignItems: 'center'}}>
         <TextInput s={10} m={11} l={11} xl={11}
-          className={invalid}
+          className={invalid + ' input-field'}
           label="New task"
           error="Tasks cannot be blank"
           value={input}
@@ -37,6 +45,7 @@ export default function Tasks ({tasks, onTasksChange}) {
         />
         <Col s={2} m={1} l={1} xl={1}> 
         <Button
+          className={color + ' add-task'}
           floating
           icon={<Icon>add</Icon>}
           small

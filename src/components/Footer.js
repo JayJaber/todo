@@ -1,8 +1,8 @@
 import { Icon, Row, Col } from 'react-materialize';
 
-export default function MyFooter () {
+export default function MyFooter (color) {
   return (
-    <div className='footer teal' style={{padding: '0.5em', textAlign: 'center', paddingBottom: 'calc(0.5em - 4px)'}}>
+    <div className={'footer '+color} style={{padding: '0.5em', textAlign: 'center', paddingBottom: 'calc(0.5em - 4px)'}}>
       <Row style={{margin: 0}}>
         <Col s={6} m={6}>
           <p className="grey-text text-lighten-3">&copy; 2021 Jay Jaber</p>
